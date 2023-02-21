@@ -1,0 +1,35 @@
+type Query{
+    getStudents:[Student]
+    getStudentById(id:String!): Student
+}
+
+type Mutation{
+    addStudent(studentInput:StudentInput): Student
+    updateStudent(id:String!, studentUpdateInput:StudentUpdateInput):Student
+    deleteStudent(id:String!):String
+}
+
+type Student{
+    id: ID
+    name: String
+    age: Int
+    gender: Gender
+    friends: [String]
+}
+
+input StudentInput{
+    name: String!
+    age: String!
+    gender: Gender!
+}
+
+input StudentUpdateInput{
+    name: String
+    age: String
+    gender: Gender
+}
+
+enum Gender{
+    MALE,
+    FEMALE
+}
